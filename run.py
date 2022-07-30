@@ -14,9 +14,9 @@ SHEET = GSPREAD_CLIENT.open('burgers')
 
 def welcome():
     print("Welcome to Burgers!\n")
-    show_menu()
+    show_burgers()
 
-def show_menu():
+def show_burgers():
     print("Here's our menu:")
 
 
