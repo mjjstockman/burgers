@@ -12,8 +12,12 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('burgers')
 
-menu = SHEET.worksheet('menu')
+def welcome():
+    print("Welcome to Burgers!\n")
+    show_menu()
 
-data = menu.get_all_values()
+def show_menu():
+    print("Here's our menu:")
 
-print(data)
+
+welcome()
