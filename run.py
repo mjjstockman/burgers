@@ -40,6 +40,7 @@ def choose_burger():
                 burger_choice = "Seitan"
         if user_confirm(burger_choice):
             add_quantity(burger_choice)
+            choose_fries()
             break
         else:
             choose_burger()
@@ -52,7 +53,7 @@ def validate_burger_choice(burger_choice_num):
             )
     except ValueError as e:
         print(f"Invalid data: {e}, please try again")
-        return False
+        validate_burger_choice(burger_choice_num)
 
     return True
 
@@ -72,8 +73,19 @@ def user_confirm(data):
         user_confirm(data)
 
 def add_quantity(data):
-    quantity = input(f"How many {data} would you like?\n")
-    print(quantity)
-    
+    while True:
+        try:
+            quantity = input(f"How many {data} would you like?\n")
+            if int(quantity) not in (1, 2, 3, 4, 5):
+                raise ValueError()
+            else:
+                if user_confirm(data):
+                    return True
+        except ValueError:
+            print(f"Invalid data: make sure you enter a full number between 1 and 5")
+        
+
+def choose_fries():
+    print("adding fries from 84")
 
 welcome()
