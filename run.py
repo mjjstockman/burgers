@@ -14,7 +14,9 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('burger_shop')
 
 burgers = SHEET.worksheet('burgers')
+fries = SHEET.worksheet('fries')
 burger_data = burgers.get_all_values()
+fries_data = fries.get_all_values()
 
 
 def welcome():
