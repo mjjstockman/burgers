@@ -16,14 +16,18 @@ SHEET = GSPREAD_CLIENT.open('burger_shop')
 burgers = SHEET.worksheet('burgers')
 
 data = burgers.get_all_values()
+
+
 def welcome():
     print("Welcome to Burgers!\n")
     show_burgers()
+
 
 def show_burgers():
     print("Here are our burgers...\n")
     print(tabulate(data, headers="firstrow", showindex="always", tablefmt="fancy_grid")) 
     choose_burger()
+
 
 def choose_burger():
     while True:
@@ -45,6 +49,7 @@ def choose_burger():
         else:
             choose_burger()
 
+
 def validate_burger_choice(burger_choice_num):
     try:
         if int(burger_choice_num) not in {0, 1, 2, 3}:
@@ -57,6 +62,7 @@ def validate_burger_choice(burger_choice_num):
 
     return True
 
+
 def validate_fries_choice(fries_choice_num):
     try:
         if int(fries_choice_num) not in {0, 1, 2}:
@@ -68,13 +74,13 @@ def validate_fries_choice(fries_choice_num):
 
     return True
 
+
 def user_confirm(data):
     print(f"You entered {data}\n")
     print("Is this correct?\n")
     confirm = input("Enter Y for yes, N for No:\n")
     confirm_strip_lcase = confirm.strip().lower()
     if confirm_strip_lcase == "y":
-        # print(f"You said {data} is correct!")
         return True
     elif confirm_strip_lcase == "n":
         print("Let's try again")
@@ -82,6 +88,7 @@ def user_confirm(data):
     else:
         print("Input must be either a Y or N")
         user_confirm(data)
+
 
 def add_quantity(data):
     while True:
@@ -94,7 +101,7 @@ def add_quantity(data):
                     return False
         except ValueError:
             print(f"Invalid data: make sure you enter a full number between 1 and 5")
-        
+
 
 def choose_fries():
     while True:
@@ -118,5 +125,5 @@ def choose_fries():
 def add_drink():
     print("SAAAAAAAFE FROM 137")
 
-welcome()
 
+welcome()
