@@ -30,15 +30,23 @@ def choose_burger():
         print("Please choose which burger you would like\n")
         burger_choice_num = input("Enter your choice below\n")
         if validate_burger_choice(burger_choice_num):
-            if user_confirm(burger_choice_num):
-                print(f"You chose {burger_choice_num}, from 33")
-                break
+            if burger_choice_num == '0':
+                burger_choice = "Beef"
+            elif burger_choice_num == '1':
+                burger_choice = "Chicken"
+            elif burger_choice_num == '2':
+                burger_choice = "Tofu"
+            elif burger_choice_num == '3':
+                burger_choice = "Seitan"
+        if user_confirm(burger_choice):
+            print(f"You chose {burger_choice}, from 42")
+            break
         else:
             choose_burger()
 
 def validate_burger_choice(burger_choice_num):
     try:
-        if int(burger_choice_num) not in {1, 2, 3, 4}:
+        if int(burger_choice_num) not in {0, 1, 2, 3}:
             raise ValueError(
                 "Must be a whole num between 1 and 4"
             )
