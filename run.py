@@ -21,7 +21,13 @@ def welcome():
     show_burgers()
 
 def show_burgers():
+    print("Here are our burgers...\n")
     print(tabulate(data, headers="firstrow", showindex="always", tablefmt="fancy_grid")) 
+    choose_burger()
 
+def choose_burger():
+    print("Please choose which burger you would like\n")
+    burger_choice = input("Enter your choice below\n")
+    print(f"You entered {burger_choice}")
 
 welcome()
