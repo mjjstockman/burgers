@@ -11,16 +11,17 @@ SCOPE = [
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('burgers')
+SHEET = GSPREAD_CLIENT.open('burger_shop')
 
+burgers = SHEET.worksheet('burgers')
+
+data = burgers.get_all_values()
 def welcome():
     print("Welcome to Burgers!\n")
     show_burgers()
 
-# def show_burgers():
-
-table = [["Sun",696000,1989100000],["Earth",6371,5973.6],["Moon",1737,73.5],["Mars",3390,641.85]]
-print(tabulate(table))   
+def show_burgers():
+    print(tabulate(data, headers="firstrow", showindex="always", tablefmt="fancy_grid")) 
 
 
-# welcome()
+welcome()
