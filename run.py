@@ -14,8 +14,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('burger_shop')
 
 burgers = SHEET.worksheet('burgers')
-
-data = burgers.get_all_values()
+burger_data = burgers.get_all_values()
 
 
 def welcome():
@@ -25,7 +24,7 @@ def welcome():
 
 def show_burgers():
     print("Here are our burgers...\n")
-    print(tabulate(data, headers="firstrow", showindex="always", tablefmt="fancy_grid")) 
+    print(tabulate(burger_data, headers="firstrow", showindex="always", tablefmt="fancy_grid")) 
     choose_burger()
 
 
@@ -125,7 +124,7 @@ def choose_fries():
 def add_drink():
     print("SAAAAAAAFE FROM 137")
 
-
+ 
 def show_fries():
     print("Here are our fries...\n")
     print(tabulate(data, headers="firstrow", showindex="always", tablefmt="fancy_grid")) 
