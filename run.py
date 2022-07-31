@@ -126,4 +126,8 @@ def add_drink():
     print("SAAAAAAAFE FROM 137")
 
 
+def show_fries():
+    print("Here are our fries...\n")
+    print(tabulate(data, headers="firstrow", showindex="always", tablefmt="fancy_grid")) 
+    choose_burger()
 welcome()
