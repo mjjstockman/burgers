@@ -39,7 +39,7 @@ def choose_burger():
             elif burger_choice_num == '3':
                 burger_choice = "Seitan"
         if user_confirm(burger_choice):
-            print(f"You chose {burger_choice}, from 42")
+            add_quantity(burger_choice)
             break
         else:
             choose_burger()
@@ -71,17 +71,9 @@ def user_confirm(data):
         print("Input must be either a Y or N")
         user_confirm(data)
 
-    # if burger_choice_num == 1:
-    #     burger = "Beef"
-    # elif burger_choice_num == 2:
-    #     burger = "Chicken"
-    #     print(f"You entered {burger}")
-    # elif burger_choice_num == 3:
-    #     burger = "Vegan"
-    # elif burger_choice_num == 4:
-    #     burger = "Tofu"
-    #     print(f"You chose {burger}")
-
+def add_quantity(data):
+    quantity = input(f"How many {data} would you like?\n")
+    print(quantity)
     
 
 welcome()
