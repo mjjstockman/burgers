@@ -57,13 +57,24 @@ def validate_burger_choice(burger_choice_num):
 
     return True
 
+def validate_fries_choice(fries_choice_num):
+    try:
+        if int(fries_choice_num) not in {0, 1, 2}:
+            raise ValueError(
+                "Must be a whole num between 0 and 2"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again")
+
+    return True
+
 def user_confirm(data):
     print(f"You entered {data}\n")
     print("Is this correct?\n")
     confirm = input("Enter Y for yes, N for No:\n")
     confirm_strip_lcase = confirm.strip().lower()
     if confirm_strip_lcase == "y":
-        print(f"You said {data} is correct!")
+        # print(f"You said {data} is correct!")
         return True
     elif confirm_strip_lcase == "n":
         print("Let's try again")
@@ -74,18 +85,38 @@ def user_confirm(data):
 
 def add_quantity(data):
     while True:
+        quantity = input(f"How many {data} would you like?\n")
         try:
-            quantity = input(f"How many {data} would you like?\n")
             if int(quantity) not in (1, 2, 3, 4, 5):
                 raise ValueError()
             else:
-                if user_confirm(data):
-                    return True
+                if user_confirm(quantity):
+                    return False
         except ValueError:
             print(f"Invalid data: make sure you enter a full number between 1 and 5")
         
 
 def choose_fries():
-    print("adding fries from 84")
+    while True:
+        print("Please choose which fries you would like\n")
+        fries_choice_num = input("Enter your choice below\n")
+        if validate_fries_choice(fries_choice_num):
+            if fries_choice_num == '0':
+                fries_choice = "Straight Fries"
+            elif fries_choice_num == '1':
+                fries_choice = "Curly Fries"
+            elif fries_choice_num == '2':
+                fries_choice = "Sweet Potatoe Fries"
+        if user_confirm(fries_choice):
+            add_quantity(fries_choice)
+            add_drink()
+            break
+        else:
+            choose_fries()
+
+
+def add_drink():
+    print("SAAAAAAAFE FROM 137")
 
 welcome()
+
