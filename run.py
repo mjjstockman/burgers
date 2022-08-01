@@ -109,6 +109,7 @@ def show_fries():
     print(tabulate(fries_data, headers="firstrow", showindex="always", tablefmt="fancy_grid")) 
     choose_fries()
 
+
 def choose_fries():
     while True:
         print("Please choose which fries you would like\n")
