@@ -1,3 +1,4 @@
+import datetime
 import gspread
 from google.oauth2.service_account import Credentials
 from tabulate import tabulate
@@ -189,18 +190,58 @@ def add_shot(drink_choice):
             break
         else:
             print("Input must be either a Y or N")
-            # add_shot(drink_choice)
+            add_shot(drink_choice)
 
 
-def dob():
+def get_dob():
     print("Plerase enter your date of birth")
     print("This should be in the dd/mm/yy format")
     dob = input("For example: 15/12/90\n")
+    if validate_dob_format(dob):
+        print("DOB ALL GOOD")
+    else:
+        get_dob()
 
 
+def validate_dob_format(dob):
+    try:
+        datetime.datetime.strptime(dob, '%d/%m/%y')
+        return True
+    except ValueError:
+        print("let's try again!")
+
+
+def add_quantity(data):
+    while True:
+        quantity = input(f"How many {data} would you like?\n")
+        try:
+            if int(quantity) not in (1, 2, 3, 4, 5):
+                raise ValueError()
+            else:
+                if user_confirm(quantity):
+                    return False
+        except ValueError:
+            print(f"Invalid data: make sure you enter a full number between 1 and 5")
+
+
+# def validate_drink_choice(drink_choice_num):
+#     try:
+#         if int(drink_choice_num) not in {0, 1, 2}:
+#             raise ValueError(
+#                 "Must be a whole num between 0 and 2"
+#             )
+#     except ValueError as e:
+#         print(f"Invalid data: {e}, please try again")
+
+    # return True
 def review_order():
     print("You have ordered....")
 
-    
-welcome()
+
+def calulate_age(dob):
+    print("Calculating dob on 216")
+
+
+# welcome()
 # show_drinks()
+get_dob()
