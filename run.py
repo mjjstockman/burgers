@@ -244,9 +244,6 @@ def add_quantity(data):
 
 def add_to_order(data, quantity):
     items[data] = quantity
-    # print(items)
-    # print(f"from 246 data is: {data}")
-    # print(f"from 247 quantity is: {quantity}")
 
 
 def review_order():
@@ -259,7 +256,7 @@ def calulate_age(dob):
 
 def show_order():
     print("You have ordered the following:\n")
-    print(tabulate(items, headers="keys", tablefmt="fancy_grid")) 
+    print(tabulate(items, headers="keys", tablefmt="fancy_grid"))
 
 
 welcome()
