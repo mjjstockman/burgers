@@ -183,7 +183,7 @@ def add_shot(drink_choice):
         add_shot = input(f"Would you like to add a shot of whiskey to your {drink_choice}?\n")
         add_shot_strip_lcase = add_shot.strip().lower()
         if add_shot_strip_lcase == "y":
-            dob()
+            get_dob()
             break
         elif add_shot_strip_lcase == "n":
             review_order()
@@ -200,7 +200,7 @@ def get_dob():
     if validate_dob_format(dob):
         print("DOB ALL GOOD")
         if check_age(dob):
-            print("Over 18")
+            review_order()
         else:
             print("Sorry you're not old enough.")
             print("We check ID on collection anyway!")    
@@ -216,15 +216,6 @@ def check_age(dob):
     else:
         return False
 
-
-
-# def set_adult(self):
-#     today = date.today()
-#     age = today.year - self.date_of_birth.year - ((today.month, today.day) < (self.date_of_birth.month, self.date_of_birth.day))
-#     if age >= 18:
-#       self.adult = True
-#     else:
-#       self.adult = False
 
 def validate_dob_format(dob):
     try:
@@ -247,16 +238,6 @@ def add_quantity(data):
             print(f"Invalid data: make sure you enter a full number between 1 and 5")
 
 
-# def validate_drink_choice(drink_choice_num):
-#     try:
-#         if int(drink_choice_num) not in {0, 1, 2}:
-#             raise ValueError(
-#                 "Must be a whole num between 0 and 2"
-#             )
-#     except ValueError as e:
-#         print(f"Invalid data: {e}, please try again")
-
-    # return True
 def review_order():
     print("You have ordered....")
 
