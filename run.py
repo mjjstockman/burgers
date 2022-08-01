@@ -199,9 +199,13 @@ def get_dob():
     dob = input("For example: 15/12/90\n")
     if validate_dob_format(dob):
         print("DOB ALL GOOD")
+        if check_age(dob):
+            print("Over 18")
     else:
         get_dob()
 
+def check_age(dob):
+    print("Checking age")
 
 def validate_dob_format(dob):
     try:
