@@ -56,6 +56,7 @@ def choose_burger():
                 burger_choice = "Seitan"
         if user_confirm(burger_choice):
             # add_quantity(burger_choice)
+            items.append(burger_choice)
             show_fries()
             break
         else:
@@ -133,6 +134,7 @@ def choose_fries():
             elif fries_choice_num == '2':
                 fries_choice = "Sweet Potatoe Fries"
         if user_confirm(fries_choice):
+            items.append(fries_choice)
             # add_quantity(fries_choice)
             show_drinks()
             break
@@ -158,6 +160,7 @@ def choose_drink():
                 drink_choice = "Orange Juice"
         if user_confirm(drink_choice):
             # add_quantity(drink_choice)
+            items.append(drink_choice)
             add_shot(drink_choice)
             break
         else:
@@ -250,8 +253,7 @@ def calulate_age(dob):
 
 def show_order():
     print("You have ordered the following:\n")
-    print(tabulate(items, headers="keys", tablefmt="fancy_grid"))
-    send_to_order()
+    print(f"A {items[0]} burger, with some {items[1]} and a drink of {items[2]}")
 
 
 def send_to_order():
