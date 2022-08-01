@@ -119,6 +119,7 @@ def add_quantity(data):
         except ValueError:
             print(f"Invalid data: make sure you enter a full number between 1 and 5")
 
+# print data and quantity
 
 def show_fries():
     print("Here are our fries...\n")
@@ -235,6 +236,8 @@ def add_quantity(data):
                 raise ValueError()
             else:
                 if user_confirm(quantity):
+                    print(f"{quantity} from 239999999999999999999999999999999")
+                    print(f"{data} from 239999999999999999999999999999999")
                     return False
         except ValueError:
             print(f"Invalid data: make sure you enter a full number between 1 and 5")
@@ -248,6 +251,6 @@ def calulate_age(dob):
     print("Calculating dob on 216")
 
 
-# welcome()
+welcome()
 # show_drinks()
-get_dob()
+# get_dob()
