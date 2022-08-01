@@ -236,11 +236,17 @@ def add_quantity(data):
                 raise ValueError()
             else:
                 if user_confirm(quantity):
-                    print(f"{quantity} from 239999999999999999999999999999999")
-                    print(f"{data} from 239999999999999999999999999999999")
+                    add_to_order(data, quantity)
                     return False
         except ValueError:
             print(f"Invalid data: make sure you enter a full number between 1 and 5")
+
+
+def add_to_order(data, quantity):
+    items[data] = quantity
+    # print(items)
+    # print(f"from 246 data is: {data}")
+    # print(f"from 247 quantity is: {quantity}")
 
 
 def review_order():
