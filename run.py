@@ -21,6 +21,8 @@ fries_data = fries.get_all_values()
 drinks = SHEET.worksheet('drinks')
 drinks_data = drinks.get_all_values()
 
+items = {}
+
 
 def welcome():
     print("Welcome to Burgers!\n")
