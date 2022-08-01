@@ -27,7 +27,7 @@ orders = SHEET.worksheet('orders')
 orders_data = orders.get_all_values()
 
 
-items = {}
+items = []
 
 
 def welcome():
@@ -55,7 +55,7 @@ def choose_burger():
             elif burger_choice_num == '3':
                 burger_choice = "Seitan"
         if user_confirm(burger_choice):
-            add_quantity(burger_choice)
+            # add_quantity(burger_choice)
             show_fries()
             break
         else:
@@ -101,17 +101,17 @@ def user_confirm(data):
         user_confirm(data)
 
 
-def add_quantity(data):
-    while True:
-        quantity = input(f"How many {data} would you like?\n")
-        try:
-            if int(quantity) not in (1, 2, 3, 4, 5):
-                raise ValueError()
-            else:
-                if user_confirm(quantity):
-                    return False
-        except ValueError:
-            print(f"Invalid data: make sure you enter a full number between 1 and 5")
+# def add_quantity(data):
+#     while True:
+#         quantity = input(f"How many {data} would you like?\n")
+#         try:
+#             if int(quantity) not in (1, 2, 3, 4, 5):
+#                 raise ValueError()
+#             else:
+#                 if user_confirm(quantity):
+#                     return False
+#         except ValueError:
+#             print(f"Invalid data: make sure you enter a full number between 1 and 5")
 
 # print data and quantity
 
@@ -133,7 +133,7 @@ def choose_fries():
             elif fries_choice_num == '2':
                 fries_choice = "Sweet Potatoe Fries"
         if user_confirm(fries_choice):
-            add_quantity(fries_choice)
+            # add_quantity(fries_choice)
             show_drinks()
             break
         else:
@@ -157,7 +157,7 @@ def choose_drink():
             elif drink_choice_num == '2':
                 drink_choice = "Orange Juice"
         if user_confirm(drink_choice):
-            add_quantity(drink_choice)
+            # add_quantity(drink_choice)
             add_shot(drink_choice)
             break
         else:
@@ -236,8 +236,8 @@ def validate_dob_format(dob):
 #             print(f"Invalid data: make sure you enter a full number between 1 and 5")
 
 
-def add_to_order(data, quantity):
-    items[data] = quantity
+# def add_to_order(data, quantity):
+#     items[data] = quantity
 
 
 def review_order():
