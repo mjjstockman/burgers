@@ -14,8 +14,8 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('burger_shop')
 
 burgers = SHEET.worksheet('burgers')
-fries = SHEET.worksheet('fries')
 burger_data = burgers.get_all_values()
+fries = SHEET.worksheet('fries')
 fries_data = fries.get_all_values()
 
 
@@ -45,7 +45,7 @@ def choose_burger():
                 burger_choice = "Seitan"
         if user_confirm(burger_choice):
             add_quantity(burger_choice)
-            choose_fries()
+            show_fries()
             break
         else:
             choose_burger()
@@ -104,6 +104,11 @@ def add_quantity(data):
             print(f"Invalid data: make sure you enter a full number between 1 and 5")
 
 
+def show_fries():
+    print("Here are our fries...\n")
+    print(tabulate(fries_data, headers="firstrow", showindex="always", tablefmt="fancy_grid")) 
+    choose_fries()
+
 def choose_fries():
     while True:
         print("Please choose which fries you would like\n")
@@ -126,9 +131,5 @@ def choose_fries():
 def add_drink():
     print("SAAAAAAAFE FROM 137")
 
- 
-def show_fries():
-    print("Here are our fries...\n")
-    print(tabulate(data, headers="firstrow", showindex="always", tablefmt="fancy_grid")) 
-    choose_burger()
+
 welcome()
