@@ -205,7 +205,17 @@ def get_dob():
         get_dob()
 
 def check_age(dob):
-    print("Checking age")
+    today = datetime.datetime.today()
+    print(today)
+
+
+# def set_adult(self):
+#     today = date.today()
+#     age = today.year - self.date_of_birth.year - ((today.month, today.day) < (self.date_of_birth.month, self.date_of_birth.day))
+#     if age >= 18:
+#       self.adult = True
+#     else:
+#       self.adult = False
 
 def validate_dob_format(dob):
     try:
