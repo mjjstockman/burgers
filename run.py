@@ -23,10 +23,6 @@ fries_data = fries.get_all_values()
 drinks = SHEET.worksheet('drinks')
 drinks_data = drinks.get_all_values()
 
-orders = SHEET.worksheet('orders')
-orders_data = orders.get_all_values()
-
-
 items = []
 
 
@@ -55,7 +51,6 @@ def choose_burger():
             elif burger_choice_num == '3':
                 burger_choice = "Seitan"
         if user_confirm(burger_choice):
-            # add_quantity(burger_choice)
             items.append(burger_choice)
             show_fries()
             break
@@ -102,20 +97,6 @@ def user_confirm(data):
         user_confirm(data)
 
 
-# def add_quantity(data):
-#     while True:
-#         quantity = input(f"How many {data} would you like?\n")
-#         try:
-#             if int(quantity) not in (1, 2, 3, 4, 5):
-#                 raise ValueError()
-#             else:
-#                 if user_confirm(quantity):
-#                     return False
-#         except ValueError:
-#             print(f"Invalid data: make sure you enter a full number between 1 and 5")
-
-# print data and quantity
-
 def show_fries():
     print("Here are our fries...\n")
     print(tabulate(fries_data, headers="firstrow", showindex="always", tablefmt="fancy_grid")) 
@@ -135,7 +116,6 @@ def choose_fries():
                 fries_choice = "Sweet Potatoe Fries"
         if user_confirm(fries_choice):
             items.append(fries_choice)
-            # add_quantity(fries_choice)
             show_drinks()
             break
         else:
@@ -159,7 +139,6 @@ def choose_drink():
             elif drink_choice_num == '2':
                 drink_choice = "Orange Juice"
         if user_confirm(drink_choice):
-            # add_quantity(drink_choice)
             items.append(drink_choice)
             add_shot(drink_choice)
             break
@@ -223,24 +202,6 @@ def validate_dob_format(dob):
         return True
     except ValueError:
         print("let's try again!")
-
-
-# def add_quantity(data):
-#     while True:
-#         quantity = input(f"How many {data} would you like?\n")
-#         try:
-#             if int(quantity) not in (1, 2, 3, 4, 5):
-#                 raise ValueError()
-#             else:
-#                 if user_confirm(quantity):
-#                     add_to_order(data, quantity)
-#                     return False
-#         except ValueError:
-#             print(f"Invalid data: make sure you enter a full number between 1 and 5")
-
-
-# def add_to_order(data, quantity):
-#     items[data] = quantity
 
 
 def review_order():
