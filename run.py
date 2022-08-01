@@ -206,7 +206,9 @@ def get_dob():
 
 def check_age(dob):
     today = datetime.datetime.today()
-    print(today)
+    dob_date = datetime.datetime.strptime(dob, "%d/%m/%y")
+    age = today.year - dob_date.year - ((today.month, today.day) < (dob_date.month, dob_date.day))
+    print(age)
 
 
 # def set_adult(self):
