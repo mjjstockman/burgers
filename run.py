@@ -86,18 +86,6 @@ def validate_fries_choice(fries_choice_num):
     return True
 
 
-def validate_fries_choice(fries_choice_num):
-    try:
-        if int(fries_choice_num) not in {0, 1, 2}:
-            raise ValueError(
-                "Must be a whole num between 0 and 2"
-            )
-    except ValueError as e:
-        print(f"Invalid data: {e}, please try again")
-
-    return True
-
-
 def user_confirm(data):
     print(f"You entered {data}\n")
     print("Is this correct?\n")
@@ -234,18 +222,18 @@ def validate_dob_format(dob):
         print("let's try again!")
 
 
-def add_quantity(data):
-    while True:
-        quantity = input(f"How many {data} would you like?\n")
-        try:
-            if int(quantity) not in (1, 2, 3, 4, 5):
-                raise ValueError()
-            else:
-                if user_confirm(quantity):
-                    add_to_order(data, quantity)
-                    return False
-        except ValueError:
-            print(f"Invalid data: make sure you enter a full number between 1 and 5")
+# def add_quantity(data):
+#     while True:
+#         quantity = input(f"How many {data} would you like?\n")
+#         try:
+#             if int(quantity) not in (1, 2, 3, 4, 5):
+#                 raise ValueError()
+#             else:
+#                 if user_confirm(quantity):
+#                     add_to_order(data, quantity)
+#                     return False
+#         except ValueError:
+#             print(f"Invalid data: make sure you enter a full number between 1 and 5")
 
 
 def add_to_order(data, quantity):
@@ -267,7 +255,7 @@ def show_order():
 
 
 def send_to_order():
-    print(f"items are {items} from 264")
+    print(f"items are {items} from 270")
 
 
 welcome()
