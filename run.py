@@ -254,10 +254,19 @@ def calulate_age(dob):
 def show_order():
     print("You have ordered the following:\n")
     print(f"A {items[0]} burger, with some {items[1]} and a drink of {items[2]}")
+    send_to_order()
 
 
 def send_to_order():
-    print(f"items are {items} from 270")
+    # order_csv = items.split(",")
+    order_csv = ",".join(items)
+    print(order_csv)
+
+
+    # print(f"items are {items} from 270")
+    # seperate to CSV
+    # add to w/s
+
 
 
 welcome()
