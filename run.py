@@ -178,9 +178,29 @@ def validate_drink_choice(drink_choice_num):
     return True
 
 def add_shot(drink_choice):
-    add_shot = input(f"Would you like to add a shot of whiskey to your {drink_choice}?\n")
-    print(add_shot)
+    while True:
+        add_shot = input(f"Would you like to add a shot of whiskey to your {drink_choice}?\n")
+        add_shot_strip_lcase = add_shot.strip().lower()
+        if add_shot_strip_lcase == "y":
+            dob()
+            break
+        elif add_shot_strip_lcase == "n":
+            review_order()
+            break
+        else:
+            print("Input must be either a Y or N")
+            # add_shot(drink_choice)
 
 
+def dob():
+    print("Plerase enter your date of birth")
+    print("This should be in the dd/mm/yy format")
+    dob = input("For example: 15/12/90\n")
+
+
+def review_order():
+    print("You have ordered....")
+
+    
 welcome()
 # show_drinks()
