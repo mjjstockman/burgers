@@ -16,10 +16,16 @@ SHEET = GSPREAD_CLIENT.open('burger_shop')
 
 burgers = SHEET.worksheet('burgers')
 burger_data = burgers.get_all_values()
+
 fries = SHEET.worksheet('fries')
 fries_data = fries.get_all_values()
+
 drinks = SHEET.worksheet('drinks')
 drinks_data = drinks.get_all_values()
+
+orders = SHEET.worksheet('orders')
+orders_data = orders.get_all_values()
+
 
 items = {}
 
