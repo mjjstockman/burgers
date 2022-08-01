@@ -257,6 +257,11 @@ def calulate_age(dob):
 def show_order():
     print("You have ordered the following:\n")
     print(tabulate(items, headers="keys", tablefmt="fancy_grid"))
+    send_to_order()
+
+
+def send_to_order():
+    print(f"items are {items} from 264")
 
 
 welcome()
