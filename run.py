@@ -54,7 +54,6 @@ def choose_burger():
         if user_confirm(burger_choice):
             items.append(burger_choice)
             show_fries()
-            break
         else:
             choose_burger()
 
@@ -67,6 +66,7 @@ def validate_burger_choice(burger_choice_num):
             )
     except ValueError as e:
         print(f"Invalid data: {e}, please try again")
+        
 
     return True
 
