@@ -33,7 +33,8 @@ def welcome():
 
 def show_burgers():
     print("Here are our burgers...\n")
-    print(tabulate(burger_data, headers="firstrow", showindex="always", tablefmt="fancy_grid")) 
+    print(tabulate(burger_data, headers="firstrow", showindex="always",
+          tablefmt="fancy_grid"))
     choose_burger()
 
 
@@ -99,7 +100,8 @@ def user_confirm(data):
 
 def show_fries():
     print("Here are our fries...\n")
-    print(tabulate(fries_data, headers="firstrow", showindex="always", tablefmt="fancy_grid")) 
+    print(tabulate(fries_data, headers="firstrow", showindex="always",
+          tablefmt="fancy_grid"))
     choose_fries()
 
 
@@ -124,8 +126,10 @@ def choose_fries():
 
 def show_drinks():
     print("Here are our drinks...\n")
-    print(tabulate(drinks_data, headers="firstrow", showindex="always", tablefmt="fancy_grid")) 
+    print(tabulate(drinks_data, headers="firstrow", showindex="always",
+          tablefmt="fancy_grid"))
     choose_drink()
+
 
 def choose_drink():
     while True:
@@ -157,9 +161,11 @@ def validate_drink_choice(drink_choice_num):
 
     return True
 
+
 def add_shot(drink_choice):
     while True:
-        add_shot = input(f"Would you like to add a shot of whiskey to your {drink_choice}?\n")
+        add_shot = input(f"Would you like to add a shot of whiskey to your
+                         {drink_choice}?\n")
         add_shot_strip_lcase = add_shot.strip().lower()
         if add_shot_strip_lcase == "y":
             get_dob()
@@ -182,14 +188,16 @@ def get_dob():
             review_order()
         else:
             print("Sorry you're not old enough.")
-            print("We check ID on collection anyway!")    
+            print("We check ID on collection anyway!")
     else:
         get_dob()
+
 
 def check_age(dob):
     today = datetime.datetime.today()
     dob_date = datetime.datetime.strptime(dob, "%d/%m/%y")
-    age = today.year - dob_date.year - ((today.month, today.day) < (dob_date.month, dob_date.day))
+    age = today.year - dob_date.year - ((today.month, today.day) <
+                                        (dob_date.month, dob_date.day))
     if age > 18:
         return True
     else:
@@ -214,7 +222,8 @@ def calulate_age(dob):
 
 def show_order():
     print("You have ordered the following:\n")
-    print(f"A {items[0]} burger, with some {items[1]} and a drink of {items[2]}")
+    print(f"A {items[0]} burger, with some {items[1]} and a drink of
+          {items[2]}")
     send_to_order()
 
 
