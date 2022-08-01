@@ -258,17 +258,8 @@ def show_order():
 
 
 def send_to_order():
-    # order_csv = items.split(",")
-    order_csv = ",".join(items)
-    print(order_csv)
-
-
-    # print(f"items are {items} from 270")
-    # seperate to CSV
-    # add to w/s
-
+    order_worksheet = SHEET.worksheet("orders")
+    order_worksheet.append_row(items)
 
 
 welcome()
-# show_drinks()
-# get_dob()
