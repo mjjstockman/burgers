@@ -164,8 +164,7 @@ def validate_drink_choice(drink_choice_num):
 
 def add_shot(drink_choice):
     while True:
-        add_shot = input(f"Would you like to add a shot of whiskey to your
-                         {drink_choice}?\n")
+        add_shot = input(f"Add a shot of whiskey to your {drink_choice}?\n")
         add_shot_strip_lcase = add_shot.strip().lower()
         if add_shot_strip_lcase == "y":
             get_dob()
@@ -222,8 +221,7 @@ def calulate_age(dob):
 
 def show_order():
     print("You have ordered the following:\n")
-    print(f"A {items[0]} burger, with some {items[1]} and a drink of
-          {items[2]}")
+    print(f"A {items[0]} burger, with {items[1]} and a drink of {items[2]}")
     send_to_order()
 
 
