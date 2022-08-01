@@ -189,7 +189,7 @@ def add_shot(drink_choice):
             get_dob()
             break
         elif add_shot_strip_lcase == "n":
-            review_order()
+            show_order()
             break
         else:
             print("Input must be either a Y or N")
@@ -255,6 +255,11 @@ def review_order():
 
 def calulate_age(dob):
     print("Calculating dob on 216")
+
+
+def show_order():
+    print("You have ordered the following:\n")
+    print(tabulate(items, headers="keys", tablefmt="fancy_grid")) 
 
 
 welcome()
