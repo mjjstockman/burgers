@@ -17,6 +17,8 @@ burgers = SHEET.worksheet('burgers')
 burger_data = burgers.get_all_values()
 fries = SHEET.worksheet('fries')
 fries_data = fries.get_all_values()
+drinks = SHEET.worksheet('drinks')
+drinks_data = drinks.get_all_values()
 
 
 def welcome():
@@ -59,7 +61,18 @@ def validate_burger_choice(burger_choice_num):
             )
     except ValueError as e:
         print(f"Invalid data: {e}, please try again")
-        validate_burger_choice(burger_choice_num)
+
+    return True
+
+
+def validate_fries_choice(fries_choice_num):
+    try:
+        if int(fries_choice_num) not in {0, 1, 2}:
+            raise ValueError(
+                "Must be a whole num between 0 and 2"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again")
 
     return True
 
@@ -123,14 +136,51 @@ def choose_fries():
                 fries_choice = "Sweet Potatoe Fries"
         if user_confirm(fries_choice):
             add_quantity(fries_choice)
-            add_drink()
+            show_drinks()
             break
         else:
             choose_fries()
 
 
-def add_drink():
-    print("SAAAAAAAFE FROM 137")
+def show_drinks():
+    print("Here are our drinks...\n")
+    print(tabulate(drinks_data, headers="firstrow", showindex="always", tablefmt="fancy_grid")) 
+    choose_drink()
+
+def choose_drink():
+    while True:
+        print("Please choose which drink you would like\n")
+        drink_choice_num = input("Enter your choice below\n")
+        if validate_drink_choice(drink_choice_num):
+            if drink_choice_num == '0':
+                drink_choice = "Cola"
+            elif drink_choice_num == '1':
+                drink_choice = "Lemonade"
+            elif drink_choice_num == '2':
+                drink_choice = "Orange Juice"
+        if user_confirm(drink_choice):
+            add_quantity(drink_choice)
+            add_shot(drink_choice)
+            break
+        else:
+            choose_drink()
+
+
+def validate_drink_choice(drink_choice_num):
+    try:
+        if int(drink_choice_num) not in {0, 1, 2}:
+            raise ValueError(
+                "Must be a whole num between 0 and 2"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again")
+
+    return True
+
+def add_shot(drink_choice):
+    add_shot = input(f"Would you like to add a shot of whiskey to your {drink_choice}?\n")
+    print(add_shot)
 
 
 welcome()
+# show_drinks()
