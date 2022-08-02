@@ -261,7 +261,7 @@ def choose_drink():
 
 
 def validate_drink_choice(drink_choice_num):
-     """If the entered number is not an int between 0 and 2
+    """If the entered number is not an int between 0 and 2
     an exception is raised
 
     Args:
