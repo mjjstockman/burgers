@@ -51,10 +51,13 @@ def choose_burger():
     show_fries is called.
     If the user does not confirm their choice or enter an invalid choice the
     function calls itself again
+
+    TODO: send burger_choice not burger_choice_num to validate_burger so the
+    user sees the item they chose instead of the number selected
     """
     while True:
         print("Please choose which burger you would like\n")
-        burger_choice_num = input("Enter your choice below\n")
+        burger_choice_num = input("Enter the number of your choice below\n")
         if validate_burger_choice(burger_choice_num):
             if burger_choice_num == '0':
                 burger_choice = "Beef"
@@ -79,10 +82,13 @@ def choose_drink():
     add_shot is called.
     If the user does not confirm their choice or enter an invalid choice the
     function calls itself again
+
+    TODO: send drink_choice not drink_choice_num to validate_drink so the
+    user sees the item they chose instead of the number selected
     """
     while True:
         print("Please choose which drink you would like\n")
-        drink_choice_num = input("Enter your choice below\n")
+        drink_choice_num = input("Enter the number of your choice below\n")
         if validate_drink_choice(drink_choice_num):
             if drink_choice_num == '0':
                 drink_choice = "Cola"
@@ -192,10 +198,13 @@ def choose_fries():
     show_drinks is called.
     If the user does not confirm their choice or enter an invalid choice the
     function calls itself again
+
+    TODO: send fries_choice not fries_choice_num to validate_fries so the
+    user sees the item they chose instead of the number selected
     """
     while True:
         print("Please choose which fries you would like\n")
-        fries_choice_num = input("Enter your choice below\n")
+        fries_choice_num = input("Enter the number of your choice below\n")
         if validate_fries_choice(fries_choice_num):
             if fries_choice_num == '0':
                 fries_choice = "Straight Fries"
@@ -229,10 +238,13 @@ def choose_drink():
     add_whisky is called.
     If the user does not confirm their choice or enter an invalid choice the
     function calls itself again
+
+    TODO: send drink_choice not drink_choice_num to validate_drink so the
+    user sees the item they chose instead of the number selected
     """
     while True:
         print("Please choose which drink you would like\n")
-        drink_choice_num = input("Enter your choice below\n")
+        drink_choice_num = input("Enter the number of your choice below\n")
         if validate_drink_choice(drink_choice_num):
             if drink_choice_num == '0':
                 drink_choice = "Cola"
