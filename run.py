@@ -54,9 +54,28 @@ def choose_burger():
         if user_confirm(burger_choice):
             items.append(burger_choice)
             show_fries()
+            break
         else:
             choose_burger()
+            
 
+# def choose_fries():
+#     while True:
+#         print("Please choose which fries you would like\n")
+#         fries_choice_num = input("Enter your choice below\n")
+#         if validate_fries_choice(fries_choice_num):
+#             if fries_choice_num == '0':
+#                 fries_choice = "Straight Fries"
+#             elif fries_choice_num == '1':
+#                 fries_choice = "Curly Fries"
+#             elif fries_choice_num == '2':
+#                 fries_choice = "Sweet Potatoe Fries"
+#         if user_confirm(fries_choice):
+#             items.append(fries_choice)
+#             show_drinks()
+#             break
+#         else:
+#             choose_fries()
 
 def validate_burger_choice(burger_choice_num):
     try:
@@ -64,10 +83,12 @@ def validate_burger_choice(burger_choice_num):
             raise ValueError(
                 "Must be a whole num between 1 and 4"
             )
+        else:
+            return True
+
     except ValueError as e:
         print(f"Invalid data: {e}, please try again")
         
-
     return True
 
 
@@ -94,12 +115,13 @@ def user_confirm(data):
         print("Let's try again")
         return False
     else:
-        print("Input must be either a Y or N")
+        print("\nInput must be either a Y or N")
+        print("Let's try that again\n")
         user_confirm(data)
 
 
 def show_fries():
-    print("Here are our fries...\n")
+    print("\nHere are our fries...\n")
     print(tabulate(fries_data, headers="firstrow", showindex="always",
           tablefmt="fancy_grid"))
     choose_fries()
@@ -231,3 +253,4 @@ def send_to_order():
 
 
 welcome()
+# choose_fries()
