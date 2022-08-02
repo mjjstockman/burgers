@@ -51,31 +51,31 @@ def choose_burger():
                 burger_choice = "Tofu"
             elif burger_choice_num == '3':
                 burger_choice = "Seitan"
-        if user_confirm(burger_choice):
-            items.append(burger_choice)
+        if user_confirm(burger_choice_num):
+            items.append(burger_choice_num)
             show_fries()
             break
         else:
             choose_burger()
-            
 
-# def choose_fries():
-#     while True:
-#         print("Please choose which fries you would like\n")
-#         fries_choice_num = input("Enter your choice below\n")
-#         if validate_fries_choice(fries_choice_num):
-#             if fries_choice_num == '0':
-#                 fries_choice = "Straight Fries"
-#             elif fries_choice_num == '1':
-#                 fries_choice = "Curly Fries"
-#             elif fries_choice_num == '2':
-#                 fries_choice = "Sweet Potatoe Fries"
-#         if user_confirm(fries_choice):
-#             items.append(fries_choice)
-#             show_drinks()
-#             break
-#         else:
-#             choose_fries()
+def choose_drink():
+    while True:
+        print("Please choose which drink you would like\n")
+        drink_choice_num = input("Enter your choice below\n")
+        if validate_drink_choice(drink_choice_num):
+            if drink_choice_num == '0':
+                drink_choice = "Cola"
+            elif drink_choice_num == '1':
+                drink_choice = "Lemonade"
+            elif drink_choice_num == '2':
+                drink_choice = "Orange Juice"
+        if user_confirm(drink_choice_num):
+            items.append(drink_choice_num)
+            add_shot(drink_choice_num)
+            break
+        else:
+            choose_drink()
+            
 
 def validate_burger_choice(burger_choice_num):
     try:
@@ -83,12 +83,9 @@ def validate_burger_choice(burger_choice_num):
             raise ValueError(
                 "Must be a whole num between 1 and 4"
             )
-        else:
-            return True
-
     except ValueError as e:
         print(f"Invalid data: {e}, please try again")
-        
+
     return True
 
 
@@ -138,8 +135,8 @@ def choose_fries():
                 fries_choice = "Curly Fries"
             elif fries_choice_num == '2':
                 fries_choice = "Sweet Potatoe Fries"
-        if user_confirm(fries_choice):
-            items.append(fries_choice)
+        if user_confirm(fries_choice_num):
+            items.append(fries_choice_num)
             show_drinks()
             break
         else:
@@ -164,9 +161,9 @@ def choose_drink():
                 drink_choice = "Lemonade"
             elif drink_choice_num == '2':
                 drink_choice = "Orange Juice"
-        if user_confirm(drink_choice):
-            items.append(drink_choice)
-            add_shot(drink_choice)
+        if user_confirm(drink_choice_num):
+            items.append(drink_choice_num)
+            add_whisky(drink_choice_num)
             break
         else:
             choose_drink()
@@ -184,32 +181,33 @@ def validate_drink_choice(drink_choice_num):
     return True
 
 
-def add_shot(drink_choice):
+def add_whisky(drink_choice_num):
     while True:
-        add_shot = input(f"Add a shot of whiskey to your {drink_choice}?\n")
+        add_shot = input(f"\nAdd a shot of whisky to your drink?\n")
         add_shot_strip_lcase = add_shot.strip().lower()
         if add_shot_strip_lcase == "y":
             get_dob()
-            break
+            return False
         elif add_shot_strip_lcase == "n":
             show_order()
-            break
+            return False
         else:
             print("Input must be either a Y or N")
-            add_shot(drink_choice)
+            add_whisky(drink_choice_num)
 
 
 def get_dob():
-    print("Plerase enter your date of birth")
+    print("\nPlease enter your date of birth\n")
     print("This should be in the dd/mm/yy format")
     dob = input("For example: 15/12/90\n")
     if validate_dob_format(dob):
-        print("DOB ALL GOOD")
         if check_age(dob):
-            review_order()
+            items.append("with whisky")
+            show_order()
         else:
             print("Sorry you're not old enough.")
             print("We check ID on collection anyway!")
+            show_order()
     else:
         get_dob()
 
@@ -219,7 +217,7 @@ def check_age(dob):
     dob_date = datetime.datetime.strptime(dob, "%d/%m/%y")
     age = today.year - dob_date.year - ((today.month, today.day) <
                                         (dob_date.month, dob_date.day))
-    if age > 18:
+    if age >= 18:
         return True
     else:
         return False
@@ -243,7 +241,7 @@ def calulate_age(dob):
 
 def show_order():
     print("You have ordered the following:\n")
-    print(f"A {items[0]} burger, with {items[1]} and a drink of {items[2]}")
+    print(f"Burger number {items[0]}, number {items[1]} fries and number {items[2]} drink")
     send_to_order()
 
 
@@ -253,4 +251,4 @@ def send_to_order():
 
 
 welcome()
-# choose_fries()
+
