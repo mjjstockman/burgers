@@ -135,7 +135,6 @@ The app was deployed to Heroku in the following way:
 3. Click "Fork" at the top right of the page.
 4. The repository will be copied into your GitHub account.
 
-[Back to top ⇧](#Hangman)
 
 ## How to create a Clone using SSH
 
@@ -163,7 +162,6 @@ Many thanks to the following which were used throughout the creation of this sit
 - [GitHub](https://github.com)
 - [Gspread Docs](https://docs.gspread.org/en/latest/)
 - [Stackoverflow](https://stackoverflow.com/)
-
 
 
 
