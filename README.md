@@ -96,4 +96,80 @@ These are taken from the fries sheet
 16. The order is added to the order worksheet
 <p><img src="docs/testing_images/order-with-whisky.png"></p>
 
+# Technologies Used
+
+## Main Languages Used
+
+- HTML
+- Python
+
+
+# Deployment
+
+## How the site was Deployed
+
+The app was deployed to Heroku in the following way:
+
+* All dependencies must be added to the Requirements.txt file.
+
+* Once logged into Heroku, click the Create new app button.
+
+* Enter a unique name for the app, a region and click Create app.
+
+* In the Config Vars section of the Setting tab click Reveal Config Vars.  Name a key "CREDS" and copy and paste the creds.json file into the corresponding Value.  A further key named PORT should be created with the value of 8000.
+
+* Click Add buildpack in the Settings page and select Python and click to save changes.  Repeat for Node.js.
+
+* Click the Deploy tab on the Application Confirmation page and select GitHub for connection method.  Enter the name of the GitHub repository and click Connect.
+
+* Click to Automatically Deploy the app each time the master branch is updated.
+
+* Click Open App within the Application Configuration page to run the program.
+ 
+
+
+## How to Fork the Repository
+
+1. Log into [GitHub](https://github.com/login) or [create an account](https://github.com/join).
+2. Select the [GitHub Repository](https://github.com/mjjstockman/game-rental).
+3. Click "Fork" at the top right of the page.
+4. The repository will be copied into your GitHub account.
+
+[Back to top ⇧](#Hangman)
+
+## How to create a Clone using SSH
+
+1. Log into [GitHub](https://github.com/login) or [create an account](https://github.com/join).
+2. Select the [GitHub Repository](https://github.com/mjjstockman/burgers).
+3. Click on the Code button.
+4. Copy the provided SSH link.
+5. Open Terminal.
+6. Navigate into the directory you want to clone the repository to.
+7. Type git clone and paste the copied URL.
+
+```
+$ git clone https://github.com/mjjstockman/burgers
+```
+
+8. Press **Enter**.
+
+
+# Credits
+
+Many thanks to the following which were used throughout the creation of this site:
+
+
+- [Git](https://git-scm.com)
+- [GitHub](https://github.com)
+- [Gspread Docs](https://docs.gspread.org/en/latest/)
+- [Stackoverflow](https://stackoverflow.com/)
+
+
+
+
+## Acknowledgements
+
+- Many thanks to my mentor for guidance.
+- Thank you to the Code Institute Slack community for their advice.
+
 
