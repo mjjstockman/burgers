@@ -44,10 +44,10 @@ def show_burgers():
 
 
 def choose_burger():
-    """a loop to continue asking the user to choose a burger until their choice 
+    """a loop to continue asking the user to choose a burger until their choice
     is validated
     The user is then asked to confirm their choice
-    If validated and confirmed the choice is added to the items list and 
+    If validated and confirmed the choice is added to the items list and
     show_fries is called.
     If the user does not confirm their choice or enter an invalid choice the
     function calls itself again
@@ -74,11 +74,12 @@ def choose_burger():
         else:
             choose_burger()
 
+
 def choose_drink():
-    """a loop to continue asking the user to choose a drink until their choice 
+    """a loop to continue asking the user to choose a drink until their choice
     is validated
     The user is then asked to confirm their choice
-    If validated and confirmed the choice is added to the items list and 
+    If validated and confirmed the choice is added to the items list and
     add_shot is called.
     If the user does not confirm their choice or enter an invalid choice the
     function calls itself again
@@ -102,7 +103,7 @@ def choose_drink():
             break
         else:
             choose_drink()
-            
+
 
 def validate_burger_choice(burger_choice_num):
     """If the entered number is not an int between 0 and 3
@@ -154,7 +155,7 @@ def validate_fries_choice(fries_choice_num):
 
 def user_confirm(data):
     """asks the user to confirm a choice by entering Y, y, N or n
-    THe answer is stripped of whitespace and if the user does not enter a 
+    THe answer is stripped of whitespace and if the user does not enter a
     valid answer they are asked again
 
 
@@ -194,7 +195,7 @@ def choose_fries():
     """a loop to continue asking the user to choose their fries until their
     choice is validated
     The user is then asked to confirm their choice
-    If validated and confirmed the choice is added to the items list and 
+    If validated and confirmed the choice is added to the items list and
     show_drinks is called.
     If the user does not confirm their choice or enter an invalid choice the
     function calls itself again
@@ -211,7 +212,7 @@ def choose_fries():
             elif fries_choice_num == '1':
                 fries_choice = "Curly Fries"
             elif fries_choice_num == '2':
-                fries_choice = "Sweet Potatoe Fries"
+                fries_choice = "Sweet Potato Fries"
         if user_confirm(fries_choice_num):
             items.append(fries_choice_num)
             show_drinks()
@@ -234,7 +235,7 @@ def choose_drink():
     """a loop to continue asking the user to choose their drink until their
     choice is validated
     The user is then asked to confirm their choice
-    If validated and confirmed the choice is added to the items list and 
+    If validated and confirmed the choice is added to the items list and
     add_whisky is called.
     If the user does not confirm their choice or enter an invalid choice the
     function calls itself again
@@ -365,7 +366,8 @@ def show_order():
     """Shows the order back to the customer
     """
     print("You have ordered the following:\n")
-    print(f"Burger number {items[0]}, number {items[1]} fries and number {items[2]} drink")
+    print(f"Burger number {items[0]}, number {items[1]} fries and number"
+           "{items[2]} drink")
     send_to_order()
 
 
@@ -377,4 +379,3 @@ def send_to_order():
 
 
 welcome()
-
